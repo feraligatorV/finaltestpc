@@ -1,3 +1,6 @@
 from django.contrib import admin
+from coladmin.models import Alumno, AlumnoAdmin, Materias, MateriaAdmin
 
-# Register your models here.
+admin.site.register(Alumno, AlumnoAdmin)
+admin.site.register(Materias,MateriaAdmin)
+
