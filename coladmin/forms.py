@@ -1,9 +1,10 @@
 from django import forms
-from django.db.models import fields
 from .models import Materias, Alumno
+from coladmin import models
 
 class MateriasForm(forms.ModelForm):
     class Meta:
+        model= Materias
         fields=('nombremateria','alumno')
     
     def __init__(self, *args, **kwargs):

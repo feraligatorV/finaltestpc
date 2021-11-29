@@ -8,11 +8,11 @@ def materia_nueva(request):
         formulario = MateriasForm(request.POST)
         if formulario.is_valid():
             materia = Materias.objects.create(nombremateria=formulario.cleaned_data['nombremateria'])
-            for alumno_id in request.POST.getlist('alumnos'):
+            for alumno_id in request.POST.getlist('alumno'):
                 encurso = Encurso(alumno_id=alumno_id, materia_id = materia.id)
                 encurso.save()
             messages.add_message(request, messages.SUCCESS, 'Materia Guardada Exitosamente')
     else:
-        formulario = MateriasForm()
-    return render(request, 'materia/materia_editar.html', {'formulario': formulario})
+        formulario= MateriasForm()
+    return render(request, 'coladmin/materia_editar.html', {'formulario': formulario})
 
